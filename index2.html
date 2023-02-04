@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tennivalók listája</title>
+    <style>
+        input[type="button"] {
+            background-color: pink;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <p>Volkov ház</p>
+    <p>Tennivalók a különleges kiállítás előtt</p>
+    <input type="text" name="hozzaadando" value="New item" id="doboz"><br>
+    <input type="button" value="Add new item." onclick="tennivaloBeiras();">
+    <div id="lista">
+        
+        
+    </div>
+    </div>
+    
+
+    <script>
+        function tennivaloBeiras() {
+            var ujElem = document.createElement("div");
+            ujElem.innerHTML = document.querySelector('input[id="doboz"]').value;
+            ujElem.onclick = elemTorles;
+            if (ujElem.innerHTML != "New item")
+            {
+            document.getElementById("lista").appendChild(ujElem);    
+            }
+
+
+        }
+        function elemTorles() {
+                document.getElementById("lista").removeChild(this);
+            }
+    </script>
+</body>
+</html>

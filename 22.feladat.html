@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A szürke 50 árnyalata</title>
+    <style>
+        .skala {
+            display: inline-block;
+            margin-left: 1px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="main">
+
+    </div>
+
+    <script>
+        var grayCode = '';
+        var grayEnd = ')">	</span>';
+        var grayStart = '<span class="skala" style="background-color:rgb('
+        var grayRow;
+        for (let decimal = 0; decimal <= 255; decimal += 4) {
+            grayRow+=grayStart;
+            for (let x = 0; x < 3; x++) {
+                
+                if (x !=2) {
+                   grayCode += decimal+','; 
+                }
+                else {
+                    grayCode += decimal;
+                }
+            }
+            grayRow+=grayCode+grayEnd;
+            grayCode='';
+
+        }        
+        var text = document.getElementById('main');
+        text.innerHTML = grayRow;
+    </script>
+
+</body>
+
+</html>

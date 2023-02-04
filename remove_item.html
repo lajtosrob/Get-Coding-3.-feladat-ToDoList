@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" value="Enter item" id="box"><br>
+    <input type="button" value="Add item" onclick="addNewItem();"><br>
+    <input type="button" id="save" value="Save" onclick="save();"><br>
+    <input type="button" id="load" value="Load" onclick="load();">
+    <div id="list">
+        <div id="savedlist" onclick="removeItem(this);"></div>
+        Gyapjúzokni
+    </div>
+
+    <script>
+        function addNewItem() {
+            var newItem = document.createElement('div');
+            newItem.innerHTML = document.getElementById('box').value;
+            newItem.onclick = removeItem;
+            document.getElementById('list').appendChild(newItem);
+            save();
+        }
+        function removeItem(elem) {
+            document.getElementById('list').removeChild(this);
+            save();
+        }
+        function save() {
+            localStorage.savedList = document.getElementById("list").innerHTML;
+        }
+        function load() {
+            document.getElementById("list").innerHTML = localStorage.savedList;
+        }
+    </script>
+</body>
+</html>

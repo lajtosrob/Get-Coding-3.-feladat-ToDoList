@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zöldek</title>
+    <style>
+        #main {
+            background-color: green;
+        }
+    </style>
+</head>
+<body>
+    <div id="main">
+
+    </div>
+    <script>
+        let greenColor = 2;
+        var hexColor = greenColor.toString(16);
+        let divStart = '<span class="green"'+i+' width: 100px; height: 20px; style="background-color:#00"'+hexColor+'000;></span>';
+        let divRows = '';
+        
+        for(let i=0;i<7;i++) {
+            divRows+=divStart;
+            greenColor+=2;
+            document.createElement('div');
+            document.getElementById('main').appendChild(divRows);
+            var hexColor = greenColor.toString(16);
+            let divStart = '<div class="green"'+i+' width: 100px; height: 20px; style="background-color:#00"'+hexColor+'000;></div>';
+            
+        }
+        var text = document.getElementById('main');
+        text.innerHTML = divStart;
+    </script>
+</body>
+</html>

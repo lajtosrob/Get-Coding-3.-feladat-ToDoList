@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+    #minus {
+            margin: 10px;
+        }    
+        #plus {
+            margin: 20px;
+        }
+        .plus {
+            font-weight: bold;
+            font-size: 18px;
+        }
+        .minus {
+            font-weight: bold;
+            font-size: 18px;
+        }
+        #select {
+            border: 4px solid lightblue;
+            border-radius: 5px;
+            width: 200px;
+            height: 40px;
+            font-family:Arial, Helvetica, sans-serif;
+            font-weight: bold;
+        }
+        .submit {
+            color: white;
+            background-color: blue;
+            height: 40px;
+            width: 70px;
+            border-radius: 5px;
+            font-weight: bold;
+            border: 0;
+        }
+        #circle {
+            background-color: green;
+            font-size: 20px;
+            border-radius: 50%;
+            height: 45px;
+            width: 45px;
+            margin: 10px;
+            text-align: center;
+        }
+        #square {
+            background-color: lightblue;
+            font-size: 20px;
+            margin: 10px;
+            height: 45px;
+            width: 45px;  
+            text-align: center;
+        }
+        #rectangle {
+            background-color: red;
+            font-size: 20px;
+            margin: 10px;
+            height: 45px;
+            width: 80px;   
+            text-align: center;
+        }
+        #top {
+            display: flex;
+        }
+        p {
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <!--- A gombra való kattintáskor növeld, vagy csökkentsd 1-gyel a kiválasztott formában lévő értéket, attól függően, hogy a radio gombok közül melyik van bepipálva. --->
+
+    <form action="">
+        <select name="" id="select">
+            <option value="rectangle">Téglalap</option>
+            <option value=circle" selected>Kör</option>
+            <option value="square">Négyzet</Option>
+            
+
+            
+        </select><br>
+        <label for="plus" class="plus">+</label>
+        <input type="radio" name="choice" id="plus" value="+" checked>
+        <label for="minus" class="minus">-</label>
+        <input type="radio" name="choice" id="minus" value="-">
+    </form>
+    <input type="button" value="Submit" class="submit" onclick="event();" >
+    <button class="submit">Submit</button>
+
+    <div id="circle"><p>0</p></div>
+    <div id="square"><p>0</p></div>        
+    <div id="rectangle"><p>0</p></div>
+
+    <script>
+        let state = {
+            circle: 0,
+            square: 0,
+            rectangle: 0,
+        };
+        var sikidom = document.getElementById('rectangle')
+        function event() {
+if (document.gete) {
+    alert('rectangle');
+}            
+        }
+
+    </script>
+</body>
+</html>

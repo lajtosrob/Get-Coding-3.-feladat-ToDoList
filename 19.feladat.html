@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lottószelvény</title>
+    <style>
+        #text {
+            display: inline-block;
+            border: solid red 2px;
+        }
+        td {
+            text-align: center;
+            border: solid red 1px;
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <h1>Lottószelvény</h1>
+    <div id="text"></div>
+
+    <script>
+        // Declare variables
+
+        var counter = 1;
+        var elementCell = '<td>'+counter+'</td>';
+        var text = document.getElementById('text');
+
+        // create table (táblázat létrehozása)
+        var tableRow = '<table>'; // Create table 
+            for ( var sorIndex = 1; sorIndex < 10; sorIndex++) {
+                tableRow+='<tr>'; // Open new table row
+                for(var oszlopIndex = 1; oszlopIndex <11; oszlopIndex++) {                    
+                    tableRow+=elementCell; // Add table cell with content
+                    counter++;
+                    elementCell = '<td>'+counter+'</td>'; // Create new table cell
+                }
+                tableRow+='</tr>'; // Close table row
+            }
+            tableRow+='</table>'; // Close table
+            text.innerHTML = tableRow;
+    </script>
+</body>
+</html>

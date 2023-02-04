@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ToDo List</title>
+</head>
+<body>
+    <p>Volkov-ház</p>
+    <p>Tennivalók listája</p>
+    <input type="text" value="Enter item" id="doboz"><br>
+    <input type="button" value="Add item" onclick="elemHozzaadas();">
+    <div id="lista" onclick="elemEltavolitas(this);">Gyapjúzokni</div>
+    <script>
+        function elemHozzaadas() {
+            var ujElem = document.createElement("div");
+            ujElem.innerHTML = document.getElementById("doboz").value;
+            ujElem.onclick = elemEltavolitas;
+            document.getElementById("lista").appendChild(ujElem);
+        }
+        function elemEltavolitas() {
+            document.getElementById("lista").removeChild(this);
+        }
+    </script>
+</body>
+</html>

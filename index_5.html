@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tennivalók listája</title>
+    <script>
+    if(localStorage.box) {
+        load();
+    }
+    </script>
+
+</head>
+
+<body>
+    <p>A Volkov-ház</p>
+    <p>Tennivalók a különleges kiállításra.</p>
+    <input type="text" value="Enter Item..." id="box"><br>
+    <input type="button" value="Add Item" onclick="addItem();"><br>
+    <input type="button" value="Delete List" onclick="deleteItems();">
+    <input type="button" value="Load" onclick="load();">
+    <div id="list">   
+        Gyapjúzokni
+        <div onclick="removeItem(this);">
+
+        </div>
+    </div>
+    <script src="main.js"></script>
+</body>
+
+</html>

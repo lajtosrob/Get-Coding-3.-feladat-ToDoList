@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p>A Volkov-ház</p>
+    <p>A különleges kiállításhoz szükséges tennivalók listája.</p>
+    <input type="text" value="Enter item" id="list"><br>
+    <input type="button" value="Load" onclick="load();">
+    <input type="button" value="Add item" onclick="tennivalokBeirasa();">
+    <div id="tarhely">
+        <div onclick="elemEltavolitas(this);">
+        Gyapjúzokni
+        </div>
+
+    </div>
+
+    <script>
+        function tennivalokBeirasa() {
+            var ujElem = document.createElement('div');
+            ujElem.innerHTML = document.getElementById('list').value;
+            ujElem.onclick = elemEltavolitas;
+            document.getElementById('tarhely').appendChild(ujElem);
+            save();
+        }
+        function elemEltavolitas(elem) {
+            document.getElementById('tarhely').removeChild(this);
+            save();
+        }
+        function save() {
+            var ujElem = document.getElementById("tarhely").innerHTML;
+            localStorage.list = ujElem;
+        }
+        function load() {
+            var savedDiv = document.getElementById('tarhely');
+            savedDiv.innerHTML = localStorage.list;
+            for(var i=0; i<tarhely.children.lenght; i++) {
+                tarhely.children[i].onclick = elemEltavolitas;
+            }
+        }
+    </script>
+</body>
+</html>

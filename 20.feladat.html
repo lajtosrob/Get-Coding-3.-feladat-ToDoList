@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ehavi naptár</title>
+    <style>
+        #calendar table tr td {
+            flex-direction: row;
+            background-color: blue;
+            font-size: 18px;
+            color: white;
+            text-align: center;
+            font-family: Geneva, Arial, Helvetica, sans-serif;
+            font-weight: bold;
+        }
+
+        #sat {
+            background-color: green;
+        }
+
+        #sun {
+            background-color: red;
+        }
+
+        #havinaptar tr td{
+            background-color: #00A;
+            width: 40px;
+            height: 32px;
+            border-radius: 4px;
+            line-height: 32px;
+            text-align: center;
+            font-size: 18px;
+            color: #FFF;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Ehavi naptár</h1>
+    <div id="calendar">
+
+    </div>
+
+    <script>
+        let counter = 1;
+        let table = '<table id="havinaptar" cellspacing="6">';
+        let cellElement = '<td>' + counter + '</td>';
+        let cellElementSat = '<td id="sat" style="background-color: green;">' + counter + '</td>';
+        let cellElementSun = '<td id="sat" style="background-color: red;">' + counter + '</td>';
+        let emptyElement = '<td id="empty" style="background-color: white;"></td>';
+        let text = document.getElementById('calendar');
+        let delay = 0;
+        for (sorIndex = 0; sorIndex < 5; sorIndex++) {
+            table += '<tr>';
+            for (oszlopIndex = 0; oszlopIndex < 7; oszlopIndex++) {
+                if (delay < 3 || counter > 31) {
+                    table += emptyElement;
+                    delay++;
+                }
+                else if (oszlopIndex == 5) {
+                    cellElementSat = '<td id="sat" style="background-color: green;">' + counter + '</td>';
+                    table += cellElementSat;
+                    counter++;
+                    cellElement = '<td>' + counter + '</td>';
+                }
+                else if (oszlopIndex == 6) {
+                    cellElementSun = '<td id="sat" style="background-color: red;">' + counter + '</td>';
+                    table += cellElementSun;
+                    counter++;
+                    cellElement = '<td>' + counter + '</td>';
+                }
+                else {
+                    table += cellElement;
+                    counter++;
+                    cellElement = '<td>' + counter + '</td>';
+                }
+
+            }
+            table += '</tr>';
+        }
+        table += '</table>';
+        text.innerHTML = table;
+
+    </script>
+</body>
+
+</html>
